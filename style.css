@@ -1,0 +1,366 @@
+/* =============== Global Base =============== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    min-height: 100vh;
+    color: #7cdb16;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 100;
+    alignment-baseline: middle;
+    padding: 50px;
+}
+
+/* =============== Layout Helpers =============== */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* =============== Forms / Login =============== */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 24px;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    width: 70%;
+    padding: 10px 12px;
+    border: 1px solid #000000;
+    border-radius: 1px;
+    font-size: 14px;
+    color: #34495e;
+    outline: none;
+    transition: border 0.2s ease;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.form-container input[type="submit"] {
+    width: 30%;
+    margin-top: 20px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: #3498db;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.form-container p {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.form-container a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* =============== Alert box (already logged in) =============== */
+.alert {
+    border-radius: 8px;
+    border: 1px solid #e2dcdc;
+    background-color: #e6fde3;
+    padding: 20px;
+    margin: 16px 0;
+    text-align: center;
+}
+
+.alert-info h2 {
+    color: #15314e;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.alert-info p {
+    color: #4e3e3e;
+    font-size: 14px;
+}
+
+.alert-info a.btn {
+    display: inline-block;
+    margin: 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.alert-info a.btn:hover {
+    transform: scale(1.03);
+}
+
+.alert-info a[href="{{ url_for('logout') }}"] {
+    color: #e74c3c;
+}
+
+.alert-info a[href="{{ url_for('logout') }}"]:hover {
+    text-decoration: underline;
+}
+
+/* =============== Dashboard Base =============== */
+.dashboard {
+    padding: 20px;
+}
+
+.dashboard h2 {
+    color: #0e9abd;
+    margin-bottom: 20px;
+    font-size: 22px;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 10px;
+    
+}
+
+.dashboard h3 {
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+table td {
+    font-size: 15px; 
+    padding: 15px;   
+    color: #000000;  
+}
+
+
+table td:first-child {
+    font-weight: bold;
+    color: #070707; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.table th {
+    background-color: #208144;
+    color: #000000;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.table tbody tr:hover {
+    background-color: #24050524;
+}
+
+.table td {
+    color: #000000;
+}
+
+
+.table td input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #050506;
+    margin-bottom: 4px;
+    display: block;
+}
+
+input[type="date"] {
+    width: 100%;
+    max-width: 160px;
+    padding: 8px 10px;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #000000;
+    outline: none;
+}
+
+input[type="date"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: #265081;
+    color: white;
+    border: 1px solid #3498db;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+        margin: 12px;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .dashboard {
+        padding: 16px;
+    }
+
+    .table {
+        font-size: 13px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+    }
+}
+
+input[type="submit"] {
+    background-color: #28a745; 
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 30px; 
+    cursor: pointer;
+    display: block;
+    margin: 30px auto; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+input[type="submit"] {
+    background-color: #28a745; 
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px; 
+    cursor: pointer;
+    display: block;
+    margin: 30px auto; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+body {
+  background-color: #007bff; /* blue background */
+  font-family: Arial, sans-serif;
+}
+
+.registration-form {
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+  margin: 50px auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form input[type="text"], .registration-form input[type="password"], .registration-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ffffff;
+  border-radius: px;
+}
+
+.registration-form .register-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.registration-form .register-btn:hover {
+  background-color: #0056b3;
+}
