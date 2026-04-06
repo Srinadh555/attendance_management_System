@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Student Dashboard</h2>
+    <p><strong>Roll No:</strong> {{ roll_no }}</p>
+
+    <h3>Attendance Stats</h3>
+    <table class="table">
+        <tr><th>Total</th><th>Present</th><th>Absent</th><th>Rate</th></tr>
+        <tr>
+            <td>{{ total }}</td>
+            <td>{{ present }}</td>
+            <td>{{ absent }}</td>
+            <td>{{ rate }}%</td>
+        </tr>
+    </table>
+
+    <h3>Details</h3>
+    <table class="table">
+        <thead>
+            <tr><th>Date</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+            {% for row in records %}
+                <tr>
+                    <td>{{ row.date }}</td>
+                    <td>{{ row.status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    {% if not session.get('username') %}
+        <h1>Login</h1>
+        <form method="post">
+            <label>Username</label>
+            <input type="text" name="username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+    {% else %}
+        <div class="alert alert-info" style="text-align: center; padding: 20px;">
+            <h2>Welcome back, {{ session['username'] }}!</h2>
+            <p>You are already logged in.</p>
+            <div style="margin-top: 20px;">
+                {% if session.get('role') == 'student' %}
+                    <a href="{{ url_for('student_dashboard') }}" class="btn" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Go to Dashboard</a>
+                {% else %}
+                    <a href="{{ url_for('staff_dashboard') }}" class="btn" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Go to Dashboard</a>
+                {% endif %}
+                <br><br>
+                <a href="{{ url_for('logout') }}" style="color: #dc3545;">Logout and switch accounts</a>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

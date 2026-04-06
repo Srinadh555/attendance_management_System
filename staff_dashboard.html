@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Staff Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Staff Dashboard</h2>
+
+    <h3>Take Attendance</h3>
+    <form method="POST">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" value="{{ today }}" required>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Student</th>
+                    <th>Present?</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stud in students %}
+                <tr>
+                    <td>{{ stud.roll_no }}</td>
+                    <td>{{ stud.name }}</td> <td>
+                        <input type="checkbox" name="present_{{ stud.roll_no }}" id="present_{{ stud.roll_no }}">
+                        <label for="present_{{ stud.roll_no }}">Mark Present</label>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="submit" value="Save Attendance" class="btn-save">
+    </form>
+
+    <hr>
+
+    <h3>Summary</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Total</th>
+                <th>Present</th>
+                <th>Absent</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in students %} <tr>
+                <td>{{ row.roll_no }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.total }}</td>
+                <td>{{ row.present }}</td>
+                <td>{{ row.absent }}</td>
+                <td>{{ row.rate }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
